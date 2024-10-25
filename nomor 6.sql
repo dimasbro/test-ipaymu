@@ -53,20 +53,20 @@ run query = CREATE INDEX idx_orders_product ON Orders(product_id);
 run query = CREATE INDEX idx_products_product_id ON Products(product_id);
 
 -- Rewriting the Query with Optimizations
-SELECT c.customer_name, p.product_name, SUM(o.total_price) AS total_spent
+SELECT c.customer_name, p.product_name, o.total AS total_spent
 FROM Customers c
-JOIN Orders o ON c.customer_id = o.customer_id
+JOIN (SELECT customer_id, product_id, SUM(total_price) AS total FROM Orders GROUP BY customer_id, product_id) o ON c.customer_id = o.customer_id
 JOIN Products p ON o.product_id = p.product_id
 WHERE c.city = 'New York'
-GROUP BY c.customer_name, p.product_name
+GROUP BY c.customer_name, p.product_name;
 
 -- Changes AND Explanation
 INDEXES: The addition OF INDEXES ON the city, customer_id, AND product_id COLUMNS will significantly reduce the TIME spent ON lookups AND filtering. INDEXES HELP the DATABASE ENGINE quickly LOCATE the ROWS that MATCH the criteria rather THAN scanning the entire table.
 
 -- Using EXPLAIN Plan to Analyze Query Performance
-EXPLAIN SELECT c.customer_name, p.product_name, SUM(o.total_price) AS total_spent
+EXPLAIN SELECT c.customer_name, p.product_name, o.total AS total_spent
 FROM Customers c
-JOIN Orders o ON c.customer_id = o.customer_id
+JOIN (SELECT customer_id, product_id, SUM(total_price) AS total FROM Orders GROUP BY customer_id, product_id) o ON c.customer_id = o.customer_id
 JOIN Products p ON o.product_id = p.product_id
 WHERE c.city = 'New York'
 GROUP BY c.customer_name, p.product_name;

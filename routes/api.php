@@ -27,7 +27,7 @@ Route::post('validate-parentheses', [ParenthesesController::class, 'validatePare
 Route::post('merge-intervals', [IntervalsController::class, 'mergeIntervals']);
 Route::post('longest-consecutive', [ConsecutiveController::class, 'longestConsecutive']);
 
-Route::middleware(['custom_throttle:10,60'])->group(function () {
+Route::middleware(['custom_throttle:100,60'])->group(function () {
     Route::get('/rate-limiter', [RateLimiterController::class, 'index']);
 });
 

@@ -17,16 +17,16 @@ class FileUploadController extends Controller
             return $validator->errors()->all();
         }
 
-        $path = $request->file('file')->store('uploads', 'public');
+        $path = $request->file('file')->store('files', 'public');
 
         $url = Storage::url($path);
 
-        return response()->json(['url' => $url], 201);
+        return response()->json(['url' => $path], 201);
     }
 
     public function download($filename)
     {
-        $path = storage_path('app/public/uploads/' . $filename);
+        $path = storage_path('app/public/files/' . $filename);
 
         if (!file_exists($path)) {
             return response()->json(['error' => 'File not found'], 404);

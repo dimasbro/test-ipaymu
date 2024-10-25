@@ -1,0 +1,251 @@
+{
+	"info": {
+		"_postman_id": "3f48d541-2148-4004-bca0-744071842045",
+		"name": "Test Ipaymu",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7265473"
+	},
+	"item": [
+		{
+			"name": "nomer 1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "character",
+							"value": "([{}])",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://test-ipaymu.local/api/validate-parentheses",
+					"protocol": "http",
+					"host": [
+						"test-ipaymu",
+						"local"
+					],
+					"path": [
+						"api",
+						"validate-parentheses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "nomer 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "number[0][0]",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "number[0][1]",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "number[1][0]",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "number[1][1]",
+							"value": "6",
+							"type": "text"
+						},
+						{
+							"key": "number[2][0]",
+							"value": "8",
+							"type": "text"
+						},
+						{
+							"key": "number[2][1]",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "number[3][0]",
+							"value": "15",
+							"type": "text"
+						},
+						{
+							"key": "number[3][1]",
+							"value": "18",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://test-ipaymu.local/api/merge-intervals",
+					"protocol": "http",
+					"host": [
+						"test-ipaymu",
+						"local"
+					],
+					"path": [
+						"api",
+						"merge-intervals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "nomer 3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "number[]",
+							"value": "100",
+							"type": "text"
+						},
+						{
+							"key": "number[]",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "number[]",
+							"value": "200",
+							"type": "text"
+						},
+						{
+							"key": "number[]",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "number[]",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "number[]",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://test-ipaymu.local/api/longest-consecutive",
+					"protocol": "http",
+					"host": [
+						"test-ipaymu",
+						"local"
+					],
+					"path": [
+						"api",
+						"longest-consecutive"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "nomer 4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://test-ipaymu.local/api/rate-limiter",
+					"protocol": "http",
+					"host": [
+						"test-ipaymu",
+						"local"
+					],
+					"path": [
+						"api",
+						"rate-limiter"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "nomer 5",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/dimas/Downloads/asasasa asas.txt"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://test-ipaymu.local/api/upload",
+					"protocol": "http",
+					"host": [
+						"test-ipaymu",
+						"local"
+					],
+					"path": [
+						"api",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "nomer 5 download",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/dimas/Downloads/blank.pdf"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://test-ipaymu.local/api/files/ZMakYyHi0QHzZHPKrYZ2ifgrc45R4A59PBQ9dZqz.txt",
+					"protocol": "http",
+					"host": [
+						"test-ipaymu",
+						"local"
+					],
+					"path": [
+						"api",
+						"files",
+						"ZMakYyHi0QHzZHPKrYZ2ifgrc45R4A59PBQ9dZqz.txt"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
